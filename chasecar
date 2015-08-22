@@ -1,0 +1,8 @@
+#!/bin/bash
+cd /home/pi
+
+sudo -b chase/ublox 2>&1 > /dev/null
+sudo -b chase/chase 2>&1 > /dev/null
+sudo -b balloon/balloon 192.168.1.37 2>&1 > /dev/null
+sudo -b lcd/lcd 2>&1 > /dev/null
+sudo -b ./batc 2>&1 > /dev/null

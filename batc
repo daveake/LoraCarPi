@@ -1,0 +1,28 @@
+#!/bin/bash
+cd /home/pi
+
+gpio mode 6 in
+gpio mode 6 up
+
+for ((; ;))
+do
+	state=1
+	while [ $state -eq 1 ]
+	do
+		sleep 1
+		state=$(gpio read 6)
+	done
+	echo Pressed
+
+	raspivid -n -fps 25 -w 640 -h 360 -t 0 -b 180000 -o - | ffmpeg/ffmpeg -f h264 -i - -f flv -vcodec copy -acodec null "rtmp://fms.batc.tv/live/6428by7h/6428by7h" 2>&1 &
+
+        while [ $state -eq 0 ]
+        do
+                sleep 1
+                state=$(gpio read 6)
+        done
+        echo Released
+
+	kill -s 2 $!
+done
+

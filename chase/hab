@@ -1,0 +1,7 @@
+#!/bin/bash
+cd /home/pi/tracker
+
+for ((i=0; ;i++))
+do
+	sudo ./habitat | python habitat.py
+done

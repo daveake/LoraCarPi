@@ -1,0 +1,4 @@
+tracker=M0RPI
+frequency=434.447
+slow=Yes
+

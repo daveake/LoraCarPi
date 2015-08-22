@@ -1,0 +1,7 @@
+#!/bin/bash
+cd /home/pi/chase
+# sudo modprobe w1-gpio
+# sudo modprobe  w1_therm
+# sudo ./sensors >> sensors.txt &
+sudo -b ./ublox 2>&1 > /dev/null
+sudo -b ./chase 2>&1 > /dev/null

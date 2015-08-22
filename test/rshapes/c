@@ -1,0 +1,2 @@
+gcc -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -L/opt/vc/lib -lGLESv2 rshapes.c -o rshapes
+
